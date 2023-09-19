@@ -1,0 +1,213 @@
+/* Reset some default styles for better consistency */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a nice font for the entire page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #eff3ff; /* 使用十六进制颜色码 */
+}
+
+/* Style the header */
+header {
+    background-color: #08519c;
+    color: #fff;
+    min-width: 100vw;
+}
+
+.title-container{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: left;
+}
+
+
+
+/* Style the main content area */
+main {
+    margin: 0 auto 20px;
+}
+
+.subtitle-container {
+    background-color: #3182bd;
+    min-width: 100vw;
+    margin-bottom: 20px;
+}
+
+.content-container{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.content-container .example-container {
+    display: grid;
+    grid-template-columns: 1.5fr 0.4fr 1.6fr;
+    grid-template-rows: 0.6fr 1.3fr 1.1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "whole-pic explanation explanation"
+    "whole-pic patch1 patch2"
+    "whole-pic explanation2 explanation2";
+}
+.whole-pic { grid-area: whole-pic; }
+.explanation { grid-area: explanation; }
+.patch1 { grid-area: patch1; }
+.patch2 { grid-area: patch2; }
+.explanation2 { grid-area: explanation2;}
+.button  {
+    display: inline-block;
+    padding: 25px 24px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    background-color: #3182bd;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+img.patch{
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    color: #ffffff;
+}
+
+h3 {
+    margin-bottom: 10px;
+    padding: 0 10px;
+    color: #3182bd;
+    font-size: 1.8em;
+}
+
+img {
+    width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+p {
+    margin-bottom: 10px;
+    padding: 0 10px;
+    font-size: 1.2em;
+}
+
+hr {
+    color: #636363; /* 设置横线颜色 */
+    background-color: #ccc; /* 设置横线背景色 */
+    height: 2px; /* 设置横线高度 */
+    border: none; /* 去掉横线边框 */
+
+    margin: 20px 0;
+}
+
+/* Style the form */
+form {
+    margin-top: 30px;
+    max-width: 80%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+select {
+    width: 98%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 30px;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+label, input, select {
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Style the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

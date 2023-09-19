@@ -59,7 +59,7 @@ def experiment(request, tester_id):
     # print(image_list)
     no = no + 1
     # 获取当前图片的名字和序号
-    if no==10:
+    if no==150:
         current_image_name = "lowmeaning-pacth1.png"
     else:
         current_image_name = image_list[0] if image_list else None  # 默认为第一张图片
