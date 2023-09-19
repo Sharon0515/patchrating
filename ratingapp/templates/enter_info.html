@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>被试信息</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+    <header>
+        <div class="title-container">
+            <h1>意义图评分实验</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="subtitle-container">
+            <h2>被试编号及信息填写</h2>
+        </div>
+
+        <div class="content-container">
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="subject_number">被试编号：</label>
+                    <input type="number" id="subject_number" name="subject_number" required><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">年龄: </label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">性别：</label>
+                    <select id="gender" name="gender" required>
+                        <option value="M">男</option>
+                        <option value="F">女</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="school_number">学号（仅作被试费发放验证使用）: </label>
+                    <input type="text" id="school_number" name="school_number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="account">支付宝账号（发放被试费使用，请务必确认无误）: </label>
+                    <input type="text" id="account" name="account" required>
+                </div>
+
+                <button type="submit" class="submit-button">提交，开始进行图像评分</button>
+            </form>
+
+        </div>
+    </main>
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>意义图评分</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'experiment.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+    {% load static %}
+    <header>
+        <div class="title-container">
+            <h1>意义图评分实验</h1>
+        </div>
+    </header>
+    <main>
+        <div class="subtitle-container">
+            <h2>请根据图片的意义程度评分</h2>
+        </div>
+
+        <div class="content-container">
+            <div class="rating-container">
+                <div class="patch-container">
+                    <!-- 显示当前图片 -->
+                    <img src="{% static current_image_name %}" class="patch">
+                </div>
+
+                <div class="no">
+                    {% if no == 150 %}
+                        <p>本题请选择较低</p>
+                    {% else %}
+                        <p>进度：{{ no }} / 300</p>
+                    {% endif %}
+                </div>
+
+                <div class="rating-button-container">
+                    <!-- 显示评分按钮 -->
+                    <form method="post" id="ratingForm">
+                        {% csrf_token %}
+                        <button type="button" class="rating-button" value="1">非常低</button><br>
+                        <button type="button" class="rating-button" value="2">低</button><br>
+                        <button type="button" class="rating-button" value="3">较低</button><br>
+                        <button type="button" class="rating-button" value="4">较高</button><br>
+                        <button type="button" class="rating-button" value="5">高</button><br>
+                        <button type="button" class="rating-button" value="6">非常高</button><br>
+                        <input type="hidden" id="rating" name="rating" value="">
+                        <button type="submit" style="display:none;">Next Image</button>
+                    </form>
+                </div>
+            </div>
+            <div class="end-container">
+                {% if no == 302 %}
+                    <a href="{% url 'thank_you' %}" class="end-button">点击此处提交并结束实验</a>
+                {% endif %}
+            </div>
+
+        </div>
+    </main>
+
+
+
+
+    <!-- JavaScript 代码，处理按钮点击事件 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ratingButtons = document.querySelectorAll('.rating-button');
+
+            ratingButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const ratingValue = this.value;
+                    document.querySelector('#rating').value = ratingValue;
+                    document.querySelector('#ratingForm').submit();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

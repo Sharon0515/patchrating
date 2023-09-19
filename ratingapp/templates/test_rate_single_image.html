@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Images</title>
+</head>
+<body>
+    {% load static %}
+    <h1>Rate Images</h1>
+    
+    <!-- 显示当前图片 -->
+    <img src="{% static current_image_name %}" >
+
+    <!-- 显示评分按钮 -->
+    <form method="post" id="ratingForm">
+        {% csrf_token %}
+        <button type="button" class="rating-button" value="1">Very High</button>
+        <button type="button" class="rating-button" value="2">High</button>
+        <button type="button" class="rating-button" value="3">Neutral</button>
+        <button type="button" class="rating-button" value="4">Low</button>
+        <button type="button" class="rating-button" value="5">Very Low</button>
+        <input type="hidden" id="rating" name="rating" value="">
+        <button type="submit" style="display:none;">Next Image</button>
+    </form>
+
+    <!-- JavaScript 代码，处理按钮点击事件 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ratingButtons = document.querySelectorAll('.rating-button');
+
+            ratingButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const ratingValue = this.value;
+                    document.querySelector('#rating').value = ratingValue;
+                    document.querySelector('#ratingForm').submit();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

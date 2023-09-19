@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Images</title>
+</head>
+<body>
+    {% load static %}
+    <h1>Rate Images</h1>
+    
+    <!-- 显示当前图片 -->
+    <img src="{{ current_image_url }}" alt="Current Image" width="300">
+    <img src="{% static 'fine/4_1.png' %}" width="300" height="300">
+    
+    <!-- 显示评分按钮 -->
+    <form method="post">
+        {% csrf_token %}
+        <label for="rating">Select Rating:</label>
+        <select id="rating" name="rating" required>
+            <option value="1">Very High</option>
+            <option value="2">High</option>
+            <option value="3">Neutral</option>
+            <option value="4">Low</option>
+            <option value="5">Very Low</option>
+        </select><br>
+        <button type="submit">Next Image</button>
+    </form>
+    
+    <!-- JavaScript 代码，处理按钮点击事件 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ratingForm = document.querySelector('form');
+            const ratingSelect = ratingForm.querySelector('#rating');
+
+            ratingForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const selectedRating = ratingSelect.value;
+
+                // 发送评分数据到服务器
+                fetch(window.location.href, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'rating=' + selectedRating,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // 获取下一张图片的URL并更新图片
+                    const nextImageUrl = data.next_image_url;
+                    document.querySelector('img').src = nextImageUrl;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验信息</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+    {% load static %}
+    <header>
+        <div class="title-container">
+            <h1>意义图评分实验</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="subtitle-container">
+            <h2>实验信息</h2>
+        </div>
+
+        <div class="content-container">
+            <h3>基本介绍</h3>
+            <p>本实验是为了更好地理解人们是如何感知眼睛观察到的视觉场景的。</p>
+            <p>在这里，我们会通过三维模型中的图片来模拟我们看到的世界，例如这样的图片：</p>
+            <img src="{% static 'example.png' %}" alt="示例图片">
+            <p>完整完成实验大约需要15～20分钟。</p>
+            <p>奖励将在实验完成后48小时内发放到您填写的支付宝账户中。</p>
+            <p>只要认真作答完成即可获得10元被试费，部分题目回答正确的可获得2元奖励。</p>
+            <p>有任何疑问可与主试联系：周同学 13819106315</p>
+            <hr>
+            <h3>实验步骤</h3>
+            <p>如果您确定要参加本实验，请详细阅读以下文字</p>
+            <p>在实验中，您将会看到一系列小圆片形状的块图像，总共有300张。</p>
+            <p>这些块图像是从许多模拟图像中裁剪出来的，内容主要是<span style="color: blue; font-weight: bold;">地震后一座二层楼的室内建筑</span>。</p>
+            <p>你需要给每一张块图像评分，评分的依据则是你认为这张块图像的<span style="color: red; font-weight: bold;">"意义程度"</span>有多高</p>
+            <p>"意义程度"是指：你看了这张块图像以后，你认为这张图像的<span style="color: blue; font-weight: bold;">信息量</span>或<span style="color: blue; font-weight: bold;">可识别性</span>。</p>
+            <p>我们可以通过两个例子来理解这项任务。</p>
+            <br>
+            <div class="example-container">
+                <div class="whole-pic"><img src="{% static 'example.png' %}" alt="示例图片"></div>
+                <div class="explanation"><p>从左边的图片中可以裁出这样的块图像：</p></div>
+                <div class="patch1"><img src="{% static 'lowmeaning-pacth1.png' %}" class="patch"></div>
+                <div class="patch2"><img src="{% static 'lowmeaning-pacth2.png' %}" class="patch"></div>
+                <div class="explanation2"><p>光看这两张块图像而不看左边的图片，你很难直接说出</p><p>这两张块图像都是什么东西，或者说是从哪一部分里裁</p><p>出来的。那么这就代表着<span style="color: red; font-weight: bold;">意义“非常低”</span>。</p></div>
+            </div>
+            <br>
+            <div class="example-container">
+                <div class="whole-pic"><img src="{% static 'example.png' %}" alt="示例图片"></div>
+                <div class="explanation"><p>从左边的图片中还可以裁出这样的块图像：</p></div>
+                <div class="patch1"><img src="{% static 'highmeaning-pacth1.png' %}" class="patch"></div>
+                <div class="patch2"><img src="{% static 'highmeaning-pacth2.png' %}" class="patch"></div>
+                <div class="explanation2"><p>但是独立看这两张块图像时，</p><p>就能直接分辨出它们的内容是“窗户”、“斑马线”，</p><p>这时<span style="color: red; font-weight: bold;">意义就是“非常高”</span>。</p></div>
+            </div>
+            <br>
+            <p>在实验中，您需要使用6分制来评价每一张块图像的"意义程度"。</p>
+            <p>1分代表"非常低"，也就是类似第一个例子的块图像。</p>
+            <p>6分代表"非常高"，也就是类似第二个例子的块图像。</p>
+            <p>整个6分制包含"非常低"，"低"，"较低"，"较高"，"高"，"非常高"这6个选项。</p>
+            <p>你只需要在图片出现后点击任意一个你认为的答案，即会跳转到下一张图像；此间将不断重复这一过程。</p>
+            <hr>
+            <h3>实验须知</h3>
+            <p>1.请回顾之前选择的被试编号，在实验开始前需要您填写正确的被试编号。如有遗忘可以返回问卷查看或联系主试。</p>
+            <p>2.请务必一次性完成该实验，中断或退出页面后将无法继续作答，同时无法领取到被试费。</p>
+            <p>3.所有选项都相同或随机选择评级的将视为无效提交。</p>
+            <p>4.在实验过程中请保持网络通畅。</p>
+            <p>5.请勿重复参与实验。</p>
+            <hr>
+            <h3>我已阅读并理解上述内容，对实验要求没有疑问，并自愿参加本研究。</h3>
+            <p>(如果您不愿意参加，或无法理解实验要求，请直接关闭本页面。)</p>
+
+            <a href="{% url 'enter_info' %}" class="button">确认并点击此处开始实验</a>
+
+
+
+        </div>
+
+    </main>
+
+
+</body>
+</html>

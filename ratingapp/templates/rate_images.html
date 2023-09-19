@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Images</title>
+</head>
+<body>
+    <h1>Rate Images</h1>
+    <img src="{{ image.image.url }}" alt="{{ image.title }}" width="300">
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="image_id" value="{{ image.id }}">
+        <label for="rating">Select Rating:</label>
+        <select id="rating" name="rating" required>
+            <option value="1">Very High</option>
+            <option value="2">High</option>
+            <option value="3">Neutral</option>
+            <option value="4">Low</option>
+            <option value="5">Very Low</option>
+        </select><br>
+        <button type="submit">Next Image</button>
+    </form>
+</body>
+</html>
