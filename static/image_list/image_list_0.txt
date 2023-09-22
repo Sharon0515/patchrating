@@ -1,0 +1,4 @@
+coarse/44_69.png
+coarse/85_78.png
+coarse/93_108.png
+fine/31_118.png

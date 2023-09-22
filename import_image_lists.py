@@ -41,7 +41,7 @@ def import_image_list(file_name):
 
 if __name__ == '__main__':
 
-    list_path = "/Users/apple/Desktop/AttentionResearch/MeaningMapProgram/image_list/"
+    list_path = os.path.join(os.path.abspath(__file__),"/static/image_list")
 
     # 指定要导入的文件列表
     file_list = [os.path.join(list_path, "image_list_" + str(i) + ".txt") for i in range(1, 44)]
