@@ -37,17 +37,19 @@
 
                 <div class="rating-button-container">
                     <!-- 显示评分按钮 -->
-                    <form method="post" id="ratingForm">
-                        {% csrf_token %}
-                        <button type="button" class="rating-button" value="1">非常低</button><br>
-                        <button type="button" class="rating-button" value="2">低</button><br>
-                        <button type="button" class="rating-button" value="3">较低</button><br>
-                        <button type="button" class="rating-button" value="4">较高</button><br>
-                        <button type="button" class="rating-button" value="5">高</button><br>
-                        <button type="button" class="rating-button" value="6">非常高</button><br>
-                        <input type="hidden" id="rating" name="rating" value="">
-                        <button type="submit" style="display:none;">Next Image</button>
-                    </form>
+		    {% if no <= 301 %}
+                    	<form method="post" id="ratingForm">
+                        	{% csrf_token %}
+                        	<button type="button" class="rating-button" value="1">非常低</button><br>
+                        	<button type="button" class="rating-button" value="2">低</button><br>
+                        	<button type="button" class="rating-button" value="3">较低</button><br>
+                        	<button type="button" class="rating-button" value="4">较高</button><br>
+                        	<button type="button" class="rating-button" value="5">高</button><br>
+                        	<button type="button" class="rating-button" value="6">非常高</button><br>
+                        	<input type="hidden" id="rating" name="rating" value="">
+                        	<button type="submit" style="display:none;">Next Image</button>
+                    	</form>
+		    {% endif %}
                 </div>
             </div>
             <div class="end-container">

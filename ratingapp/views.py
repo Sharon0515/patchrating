@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .models import ImageList, Tester, Rating
 import os
 import csv
+import logging
+
+logger = logging.getLogger(__name__)
 
 # 登录页面后先查看实验须知
 def experiment_intro(request):
@@ -48,7 +51,8 @@ def experiment(request, tester_id):
         # 处理用户提交的评分数据
         rating_value = request.POST.get('rating')
         rated_image_name = request.session.get('rated_image_name')
-
+        print(f"rated_image_name: {rated_image_name}")
+        logger.debug(f"rated_image_name : {rated_image_name}")
         # 保存评分到数据库
         rating = Rating.objects.create(user=tester, image=rated_image_name, rating=rating_value)
 

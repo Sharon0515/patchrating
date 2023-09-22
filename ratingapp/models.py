@@ -40,6 +40,7 @@ class Rating(models.Model):
     image = models.CharField(max_length=50)
     user = models.ForeignKey(Tester, on_delete=models.CASCADE)
     rating = models.PositiveSmallIntegerField(choices=RATING_CHOICES)
+    submitted_at = models.DateTimeField(auto_now_add = True)
 
 # Tester 类存储试验者的信息，包括年龄和性别。
 # assigned_images 字段使用 ManyToManyField 来与 Image 类建立多对多关系，表示每个试验者分配到的图片。
