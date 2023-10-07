@@ -41,8 +41,9 @@ def import_image_list(file_name):
 
 if __name__ == '__main__':
 
-    list_path = os.path.join(os.path.abspath(__file__),"/static/image_list")
-
+    # list_path = os.path.join(os.path.abspath(__file__),"/static/image_list")
+    list_path = "/home/www/patchrating/static/image_list"
+    print(list_path)
     # 指定要导入的文件列表
     file_list = [os.path.join(list_path, "image_list_" + str(i) + ".txt") for i in range(1, 44)]
 

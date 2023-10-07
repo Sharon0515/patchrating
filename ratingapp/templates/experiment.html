@@ -29,9 +29,10 @@
 
                 <div class="no">
                     {% if no == 150 %}
-                        <p>本题请选择较低</p>
+		    	<p>进度：{{ no }} / 301</p>
+			<p><span style="color: red; font-weight: bold;">本题请选择较低</span></p>
                     {% else %}
-                        <p>进度：{{ no }} / 300</p>
+                        <p>进度：{{ no }} / 301</p>
                     {% endif %}
                 </div>
 
